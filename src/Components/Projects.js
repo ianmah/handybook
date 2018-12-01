@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ProjectItem from './ProjectItem';
+import Button from '@material-ui/core/Button';
 
 class Projects extends Component {
   deleteProject(id){
@@ -18,8 +19,12 @@ class Projects extends Component {
     }
     return (
       <div className="Projects">
-        <h3>Latest Projects</h3>
+        <h3>Current Bookings</h3>
         {projectItems}
+        <br />
+        <Button variant="contained" color="primary" type="submit" value="Submit">
+         Confirm and Submit
+        </Button>
       </div>
     );
   }
