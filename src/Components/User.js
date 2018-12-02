@@ -5,9 +5,17 @@ import Handys from './Handys';
 
 
 class User extends Component {
+  constructor() {
+      super();
+      this.state = {}
+  }
+  componentDidMount(){
+    this.setState(this.props.points)
+
+  }
 
 handleAddProject(project){
-  let projects= this.state.projects;
+  let projects= this.props.points;
   projects.push(project);
   this.setState({projects:projects})
 }
