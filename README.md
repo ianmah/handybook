@@ -1,9 +1,9 @@
 Credits to:
 
-Ian Mah @ianmah /n
+Ian Mah @ianmah 
 
 
-Calvin Hong @calhong /n
+Calvin Hong @calhong 
 
 
-Jonathan Kim @jonathan-sj-kim /n
+Jonathan Kim @jonathan-sj-kim 
