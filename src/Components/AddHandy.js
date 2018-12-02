@@ -9,10 +9,6 @@ class AddHandy extends Component {
     }
   }
 
-  static defaultProps = {
-    categories: ['Home', 'ASD', 'House']
-  }
-
   handleSubmit(e){
     if(this.refs.to.value === ''){
       alert('Title is required');
@@ -20,7 +16,9 @@ class AddHandy extends Component {
       this.setState({newProject:{
         id: uuid.v4(),
         to: this.refs.to.value,
-        from: this.refs.from.value
+        from: this.refs.from.value,
+        time: this.refs.time.value,
+        date: this.refs.date.value
       }}, function(){
         //console.log(this.state);
         this.props.addProject(this.state.newProject);
@@ -30,22 +28,25 @@ class AddHandy extends Component {
   }
 
   render() {
-    let categoryOptions = this.props.categories.map(category => {
-      return <option key={category} value={category}>{category}</option>
-    });
     return (
       <div>
         <h3>Add Project</h3>
         <form onSubmit={this.handleSubmit.bind(this)}>
           <div>
-            <label>Title</label><br />
+            <label>To</label><br />
             <input type="text" ref="to" />
           </div>
           <div>
-            <label>Category</label><br />
-            <select ref="from">
-              {categoryOptions}
-            </select>
+            <label>From</label><br />
+            <input type="text" ref="from" />
+          </div>
+          <div>
+            <label>Time</label><br />
+            <input type="text" ref="time" />
+          </div>
+          <div>
+            <label>Date</label><br />
+            <input type="text" ref="date" />
           </div>
           <br />
           <input type="submit" value="Submit" />
