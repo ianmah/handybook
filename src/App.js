@@ -1,65 +1,32 @@
 import React, { Component } from 'react';
-import uuid from 'uuid';
-import $ from 'jquery';
-import Projects from './Components/Projects';
-import AddProject from './Components/AddProject';
+import State from './Components/State';
 import './App.css';
 
 class App extends Component {
-  constructor(){
+
+  constructor() {
     super();
-    this.state = {
-      projects: []
-    }
+    this.state = { showUser: false,
+    showAdmin: false }
   }
 
-  getProjects(){
-    this.setState({projects: [
-      {
-        id:uuid.v4(),
-        title: 'Business Website',
-        category: 'Web Deisgn'
-      },
-      {
-        id:uuid.v4(),
-        title: 'Social App',
-        category: 'Mobile Development'
-      },
-      {
-        id:uuid.v4(),
-        title: 'Ecommerce Shopping Cart',
-        category: 'Web Development'
-      }
-    ]});
-  }
-
-  componentWillMount(){
-    this.getProjects();
-  }
-
-
-  handleAddProject(project){
-    let projects = this.state.projects;
-    projects.push(project);
-    this.setState({projects:projects});
-  }
-
-  handleDeleteProject(id){
-    let projects = this.state.projects;
-    let index = projects.findIndex(x => x.id === id);
-    projects.splice(index, 1);
-    this.setState({projects:projects});
+  _showMessage = (bool) => {
+    this.setState({
+      showUser: bool,
+      showAdmin: !bool
+    })
   }
 
   render() {
     return (
-      <div className="App">
-        <div className="container">
-           <AddProject addProject={this.handleAddProject.bind(this)} />
-           <Projects projects={this.state.projects} onDelete={this.handleDeleteProject.bind(this)} />
-        </div>
+      <div className='App'>
+      <h1> HandyBook </h1>
+      <button onClick = {this._showMessage.bind(null, true)} >user</button>
+      <button onClick = {this._showMessage.bind(null, false)} >admin</button>
+      { this.state.showUser && (<State test = "user"/>)}
+      { this.state.showAdmin && (<State test = "admin"/>)}
       </div>
-    );
+    )
   }
 }
 

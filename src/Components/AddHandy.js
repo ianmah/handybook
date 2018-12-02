@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import uuid from 'uuid';
-import Button from '@material-ui/core/Button';
 
-class AddProject extends Component {
+class AddHandy extends Component {
   constructor(){
     super();
     this.state = {
@@ -11,12 +10,12 @@ class AddProject extends Component {
   }
 
   static defaultProps = {
-    categories: ['Home', 'Web Development', 'Mobile Development']
+    categories: ['Web Design', 'Web Development', 'Mobile Development']
   }
 
   handleSubmit(e){
     if(this.refs.title.value === ''){
-      alert('Destination is required');
+      alert('Title is required');
     } else {
       this.setState({newProject:{
         id: uuid.v4(),
@@ -36,10 +35,10 @@ class AddProject extends Component {
     });
     return (
       <div>
-        <h3>Handy Booker</h3>
+        <h3>Add Project</h3>
         <form onSubmit={this.handleSubmit.bind(this)}>
           <div>
-            <label>Destination</label><br />
+            <label>Title</label><br />
             <input type="text" ref="title" />
           </div>
           <div>
@@ -49,16 +48,11 @@ class AddProject extends Component {
             </select>
           </div>
           <br />
-
-              <Button variant="contained" color="primary" type="submit" value="Submit">
-                Add Appointment
-              </Button>
-
+          <input type="submit" value="Submit" />
           <br />
         </form>
       </div>
     );
   }
 }
-
-export default AddProject;
+export default AddHandy;
