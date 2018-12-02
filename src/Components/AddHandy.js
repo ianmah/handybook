@@ -10,17 +10,17 @@ class AddHandy extends Component {
   }
 
   static defaultProps = {
-    categories: ['Web Design', 'Web Development', 'Mobile Development']
+    categories: ['Home', 'ASD', 'House']
   }
 
   handleSubmit(e){
-    if(this.refs.title.value === ''){
+    if(this.refs.to.value === ''){
       alert('Title is required');
     } else {
       this.setState({newProject:{
         id: uuid.v4(),
-        title: this.refs.title.value,
-        category: this.refs.category.value
+        to: this.refs.to.value,
+        from: this.refs.from.value
       }}, function(){
         //console.log(this.state);
         this.props.addProject(this.state.newProject);
@@ -39,11 +39,11 @@ class AddHandy extends Component {
         <form onSubmit={this.handleSubmit.bind(this)}>
           <div>
             <label>Title</label><br />
-            <input type="text" ref="title" />
+            <input type="text" ref="to" />
           </div>
           <div>
             <label>Category</label><br />
-            <select ref="category">
+            <select ref="from">
               {categoryOptions}
             </select>
           </div>

@@ -22,12 +22,17 @@ date : "10-09-2069"}
       ]}
   }
 
+handleAddProject(project){
+  let projects= this.state.projects;
+  projects.push(project);
+  this.setState({projects:projects})
+}
 
   render() {
       return (
         <div className='User'>
-        <Handys />
-        <AddHandy />
+        <AddHandy addProject={this.handleAddProject.bind(this)}/>
+        <Handys projects={this.state.projects} />
         </div>
       )
 }
