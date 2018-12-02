@@ -69,7 +69,7 @@ button {
   margin: 12px;
   background-color: #eee;
   padding: 30px;
-
+  list-style-type: none;
 }
 
 @keyframes App-logo-spin {
