@@ -6,9 +6,10 @@ class State extends Component {
 
   render() {
     if (this.props.test === 'user'){
+      console.log(this.props)
       return (
         <div className='State'>
-        <User />
+        <User points = {this.props.apps} />
         </div>
       )
     } else {
