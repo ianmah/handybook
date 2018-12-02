@@ -33,20 +33,16 @@ class AddHandy extends Component {
         <h3>Add Booking</h3>
         <form onSubmit={this.handleSubmit.bind(this)}>
           <div>
-            <label>To</label><br />
-            <input type="text" ref="to" />
+            <input type="text" ref="to" placeholder="Destination"/>
           </div>
           <div>
-            <label>From</label><br />
-            <input type="text" ref="from" />
+            <input type="text" ref="from" placeholder="From" />
           </div>
           <div>
-            <label>Time</label><br />
-            <input type="text" ref="time" pattern="[0-9]{2}:[0-9]{2}" title="00:00" />
+            <input type="text" ref="time" placeholder="Time" pattern="^[0-2][0-3]:[0-5][0-9]$" title="00:00" />
           </div>
           <div>
-            <label>Date</label><br />
-            <input type="text" ref="date" pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}" title="mm-dd-yyyy" />
+            <input type="text" ref="date" placeholder="Date" pattern="^((0|1)\d{1})-((0|1|2)\d{1})-((19|20)\d{2})" title="mm-dd-yyyy" />
           </div>
           <br />
           <input type="submit" value="Submit" />

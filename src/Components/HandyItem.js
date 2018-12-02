@@ -8,7 +8,12 @@ class HandyItem extends Component {
   render() {
     return (
       <li className="Project">
-        <strong>{this.props.project.to}</strong>: {this.props.project.from} : {this.props.project.time} : {this.props.project.date}
+        <h2>{this.props.project.to}</h2>
+        <strong>From:</strong> {this.props.project.from}
+        <br />
+        <strong>Time:</strong> {this.props.project.time}
+        <br />
+        <strong>Date:</strong> {this.props.project.date}
       </li>
     );
   }
