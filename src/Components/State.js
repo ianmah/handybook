@@ -15,7 +15,7 @@ class State extends Component {
     } else {
       return (
         <div className='State'>
-        <Admin />
+        <Admin points = {this.props.apps} />
         </div>
       )
 

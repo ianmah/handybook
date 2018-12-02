@@ -11,16 +11,16 @@ class App extends Component {
     showAdmin: false,
     projects: [
       {id : uuid.v4(),
-        to : "doctor",
-    from : "WHOREHOUSE",
+        to : "Doctor",
+    from : "Home",
   time : "04:20",
-  date : "10-09-1969"},
+  date : "12-08-2018"},
 
   {id : uuid.v4(),
-    to : "penis enlargement",
-  from : "home",
+    to : "Surgery",
+  from : "Home",
   time : "04:20",
-  date : "10-09-2069"}
+  date : "12-03-2018"}
     ] }
   }
 
@@ -38,7 +38,7 @@ class App extends Component {
       <button onClick = {this._showMessage.bind(null, true)} >user</button>
       <button onClick = {this._showMessage.bind(null, false)} >admin</button>
       { this.state.showUser && (<State test = "user" apps = {this.state.projects}/>)}
-      { this.state.showAdmin && (<State test = "admin"/>)}
+      { this.state.showAdmin && (<State test = "admin" apps = {this.state.projects}/>)}
       </div>
     )
   }

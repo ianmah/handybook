@@ -10,7 +10,7 @@ class AddHandy extends Component {
   }
 
   handleSubmit(e){
-    if(this.refs.to.value === ''){
+    if(this.refs.to.value === '' || this.refs.from.value === '' || this.refs.time.value === '' ||this.refs.date.value === ''){
       alert('Title is required');
     } else {
       this.setState({newProject:{
@@ -30,7 +30,7 @@ class AddHandy extends Component {
   render() {
     return (
       <div>
-        <h3>Add Project</h3>
+        <h3>Add Booking</h3>
         <form onSubmit={this.handleSubmit.bind(this)}>
           <div>
             <label>To</label><br />
@@ -42,11 +42,11 @@ class AddHandy extends Component {
           </div>
           <div>
             <label>Time</label><br />
-            <input type="text" ref="time" />
+            <input type="text" ref="time" pattern="[0-9]{2}:[0-9]{2}" title="00:00" />
           </div>
           <div>
             <label>Date</label><br />
-            <input type="text" ref="date" />
+            <input type="text" ref="date" pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}" title="mm-dd-yyyy" />
           </div>
           <br />
           <input type="submit" value="Submit" />
