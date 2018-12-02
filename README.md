@@ -2,8 +2,7 @@ Credits to:
 
 Ian Mah @ianmah 
 
+Jonathan Kim @jonathan-sj-kim 
+
 
 Calvin Hong @calhong 
-
-
-Jonathan Kim @jonathan-sj-kim 
