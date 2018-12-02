@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import HandyItem from './HandyItem';
+import AddHandy from './AddHandy';
+import Handys from './Handys';
 import uuid from 'uuid';
+
 
 class User extends Component {
   constructor() {
@@ -20,28 +22,14 @@ date : "10-09-2069"}
       ]}
   }
 
-  deleteProject(searchid){
-      // this.state.projects.splice(this.state.projects.findIndex(element => element.to === "penis enlargement"), 1);
-      this.setState({})
 
-    }
-
-    render() {
-      let projectItems;
-      if(this.state.projects){
-        projectItems = this.state.projects.map(project => {
-          console.log(project);
-          return (
-            <HandyItem onDelete={this.deleteProject.bind(this)} key={project.to} project={project} />
-          );
-        });
-      }
+  render() {
       return (
-        <div className="Projects">
-          <h3>Latest Projects</h3>
-          {projectItems}
+        <div className='User'>
+        <Handys />
+        <AddHandy />
         </div>
-      );
-    }
+      )
+}
 }
 export default User;
