@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import AddHandy from './AddHandy';
 import Handys from './Handys';
 
-
-
 class User extends Component {
   constructor() {
       super();
@@ -11,7 +9,6 @@ class User extends Component {
   }
   componentDidMount(){
     this.setState(this.props.points)
-
   }
 
 handleAddProject(project){
@@ -26,7 +23,6 @@ handleAddProject(project){
         <AddHandy addProject={this.handleAddProject.bind(this)}/>
         <Handys projects={this.props.points} />
         </div>
-      )
-}
+      )}
 }
 export default User;
