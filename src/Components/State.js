@@ -18,9 +18,7 @@ class State extends Component {
         <Admin points = {this.props.apps} />
         </div>
       )
-
     }
-
   }
 }
 
