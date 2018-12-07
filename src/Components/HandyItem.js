@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 
 class HandyItem extends Component {
-  deleteProject(id){
-    this.props.onDelete(id);
-  }
 
+  deleteItem(e){
+    //console.log(this.props.project.id)
+    this.props.onDelete(this.props.project.id)
+  }
   render() {
+
     return (
       <li className="Project">
         <h2>{this.props.project.to}</h2>
@@ -14,6 +16,9 @@ class HandyItem extends Component {
         <strong>Time:</strong> {this.props.project.time}
         <br />
         <strong>Date:</strong> {this.props.project.date}
+        <br />
+        <br />
+        <button onClick={this.deleteItem.bind(this)}>Remove</button>
       </li>
     );
   }

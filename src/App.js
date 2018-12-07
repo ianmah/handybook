@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import State from './Components/State';
+import State from './components/State';
 import './App.css';
-import uuid from 'uuid';
 import firebase from './config/fbConfig.js';
 
 class App extends Component {
@@ -13,11 +12,11 @@ class App extends Component {
       db.collection('users').get().then((snapshot) => {
         //console.log(snapshot.docs);
         snapshot.docs.forEach(doc => {
-          const user = doc.data();
-
-
+          let booking = doc.data();
+          booking.id = doc.id;
           let projects= this.state.projects;
-          projects.push(user);
+          projects.push(booking);
+          console.log(booking)
           this.setState({projects:projects})
 
         })

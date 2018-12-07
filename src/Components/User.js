@@ -17,11 +17,19 @@ handleAddProject(project){
   this.setState({projects:projects})
 }
 
+handleDelete(id){
+  let projects = this.props.points;
+  console.log('ID: ' + id)
+  let index = projects.findIndex(x => x.id === id);
+  projects.splice(index, 1);
+  this.setState({projects:projects});
+}
+
   render() {
       return (
         <div className='User'>
         <AddHandy addProject={this.handleAddProject.bind(this)}/>
-        <Handys projects={this.props.points} />
+        <Handys projects={this.props.points} onDelete={this.handleDelete.bind(this)} />
         </div>
       )}
 }

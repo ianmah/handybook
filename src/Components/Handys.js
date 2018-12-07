@@ -3,8 +3,8 @@ import HandyItem from './HandyItem';
 
 class Handys extends Component {
 
-  deleteProject(id){
-    this.props.onDelete(id);
+    deleteItem(id){
+      this.props.onDelete(id);
     }
 
     render() {
@@ -14,8 +14,7 @@ class Handys extends Component {
           console.log(project);
           return (
             <div>
-
-            <HandyItem onDelete={this.deleteProject.bind(this)} key={project.to} project={project} />
+            <HandyItem key={project.to} onDelete={this.deleteItem.bind(this)} project={project} />
             </div>
           );
         });

@@ -11,6 +11,7 @@ class AddHandy extends Component {
   }
 
   handleSubmit(e){
+    e.preventDefault();
     if(this.refs.to.value === '' || this.refs.from.value === '' || this.refs.time.value === '' ||this.refs.date.value === ''){
       alert('Fill all fields please!');
     } else {
@@ -32,7 +33,6 @@ class AddHandy extends Component {
         this.props.addProject(this.state.newProject);
       });
     }
-    e.preventDefault();
   }
 
   render() {
