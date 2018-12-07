@@ -2,33 +2,38 @@ import React, { Component } from 'react';
 import State from './Components/State';
 import './App.css';
 import uuid from 'uuid';
+import firebase from './config/fbConfig.js';
 
 class App extends Component {
 
   constructor() {
-    super();
-    this.state = { showUser: false,
-    showAdmin: false,
-    projects: [
-      {id : uuid.v4(),
-        to : "Doctor",
-    from : "Home",
-  time : "04:20",
-  date : "12-08-2018"},
+      super();
 
-  {id : uuid.v4(),
-    to : "Surgery",
-  from : "Home",
-  time : "04:20",
-  date : "12-03-2018"}
-    ] }
+      const db = firebase.firestore();
+      db.collection('users').get().then((snapshot) => {
+        //console.log(snapshot.docs);
+        snapshot.docs.forEach(doc => {
+          const user = doc.data();
+
+
+          let projects= this.state.projects;
+          projects.push(user);
+          this.setState({projects:projects})
+
+        })
+      })
+      this.state = {
+          showUser: false,
+          showAdmin: false,
+          projects: []
+      }
   }
 
   _showMessage = (bool) => {
-    this.setState({
-      showUser: bool,
-      showAdmin: !bool
-    })
+      this.setState({
+          showUser: bool,
+          showAdmin: !bool
+      })
   }
 
   render() {
