@@ -25,7 +25,6 @@ handleDelete(id){
   projects.splice(index, 1);
   this.setState({projects:projects});
 
-
   const db = firebase.firestore();
   db.collection('users').doc(id).delete();
 }
