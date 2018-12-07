@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AddHandy from './AddHandy';
 import Handys from './Handys';
+import firebase from '../config/fbConfig.js';
 
 class User extends Component {
   constructor() {
@@ -23,6 +24,10 @@ handleDelete(id){
   let index = projects.findIndex(x => x.id === id);
   projects.splice(index, 1);
   this.setState({projects:projects});
+
+
+  const db = firebase.firestore();
+  db.collection('users').doc(id).delete();
 }
 
   render() {
